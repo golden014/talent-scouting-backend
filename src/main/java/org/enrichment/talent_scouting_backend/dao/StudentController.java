@@ -13,7 +13,7 @@ import java.util.List;
 public class StudentController {
 
     @Autowired
-    StudentService studentService;
+    private StudentService studentService;
 
     @GetMapping("/getStudentById")
     public Student getStudentById(int studentId) {
