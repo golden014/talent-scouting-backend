@@ -24,7 +24,6 @@ public class StudentDAOImpl implements StudentDAO {
     public Student save(Student student) {
         try {
             entityManager.persist(student);
-//            System.out.println(student.getDob());
             return student;
         } catch (Exception e) {
             // Log the exception (use a logging framework such as SLF4J)
