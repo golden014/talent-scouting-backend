@@ -1,4 +1,4 @@
-package org.enrichment.talent_scouting_backend.service;
+package org.enrichment.talent_scouting_backend.service.student;
 
 import org.enrichment.talent_scouting_backend.dao.student.StudentDAO;
 import org.enrichment.talent_scouting_backend.model.Student;
