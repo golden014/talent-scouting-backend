@@ -43,4 +43,12 @@ public class CompanyDAOImpl implements CompanyDAO {
         Query<Company> query = session.createQuery("from Company", Company.class);
         return query.getResultList();
     }
+
+    @Override
+    public List<Company> addCompanyBulk(List<Company> companies) {
+        for (Company company : companies) {
+            entityManager.persist(company);
+        }
+        return companies;
+    }
 }
