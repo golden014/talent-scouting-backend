@@ -1,4 +1,4 @@
-package org.enrichment.talent_scouting_backend.dao;
+package org.enrichment.talent_scouting_backend.dao.student;
 
 import jakarta.persistence.EntityManager;
 import org.enrichment.talent_scouting_backend.model.Student;
