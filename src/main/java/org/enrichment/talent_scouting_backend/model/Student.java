@@ -30,9 +30,9 @@ public class Student {
     @Column
     private String phone;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-mm-yyyy")
-    @DateTimeFormat(pattern = "dd-mm-yyyy")
-    private Date dob;
+//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-mm-yyyy")
+//    @DateTimeFormat(pattern = "dd-mm-yyyy")
+//    private Date dob;
 
     @Column
     private String major;
@@ -95,13 +95,13 @@ public class Student {
         this.phone = phone;
     }
 
-    public Date getDob() {
-        return dob;
-    }
-
-    public void setDob(Date dob) {
-        this.dob = dob;
-    }
+//    public Date getDob() {
+//        return dob;
+//    }
+//
+//    public void setDob(Date dob) {
+//        this.dob = dob;
+//    }
 
     public String getMajor() {
         return major;
