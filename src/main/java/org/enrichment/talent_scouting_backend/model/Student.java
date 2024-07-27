@@ -2,14 +2,11 @@ package org.enrichment.talent_scouting_backend.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.sql.Date;
 
 @Entity
-@Getter @Setter
 public class Student {
 
     //generated value -> column ini akan tergenerate value nya, dengan cara increment satu per satu (identity)
