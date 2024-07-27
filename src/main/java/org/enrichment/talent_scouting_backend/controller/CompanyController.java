@@ -3,11 +3,10 @@ package org.enrichment.talent_scouting_backend.controller;
 import org.enrichment.talent_scouting_backend.model.Company;
 import org.enrichment.talent_scouting_backend.service.company.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -31,8 +30,18 @@ public class CompanyController {
         return companyService.save(company);
     }
 
-    @PostMapping("deleteCompanyById")
+    @PostMapping("/deleteCompanyById")
     public void deleteCompanyById(int id) {
         companyService.deleteCompany(id);
+    }
+
+    @PostMapping("/insertCompanyBulk")
+    public List<Company> insertCompanyBulk(@RequestParam("file") MultipartFile file) {
+        try {
+            return companyService.addCompanyBulk(file);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
 }

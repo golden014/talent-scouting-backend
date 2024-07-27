@@ -12,4 +12,6 @@ public interface CompanyDAO {
     void deleteCompany(int id);
 
     List<Company> getAllCompanies();
+
+    List<Company> addCompanyBulk(List<Company> companies);
 }
