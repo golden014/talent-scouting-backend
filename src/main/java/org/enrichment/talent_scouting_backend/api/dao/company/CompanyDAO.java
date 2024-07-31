@@ -1,6 +1,6 @@
-package org.enrichment.talent_scouting_backend.dao.company;
+package org.enrichment.talent_scouting_backend.api.dao.company;
 
-import org.enrichment.talent_scouting_backend.model.Company;
+import org.enrichment.talent_scouting_backend.api.model.Company;
 
 import java.util.List;
 

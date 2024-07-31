@@ -1,7 +1,7 @@
-package org.enrichment.talent_scouting_backend.dao.student;
+package org.enrichment.talent_scouting_backend.api.dao.student;
 
 import jakarta.persistence.EntityManager;
-import org.enrichment.talent_scouting_backend.model.Student;
+import org.enrichment.talent_scouting_backend.api.model.Student;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
