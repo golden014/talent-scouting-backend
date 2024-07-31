@@ -1,6 +1,6 @@
 package org.enrichment.talent_scouting_backend.controller;
 
-import org.enrichment.talent_scouting_backend.model.Student;
+import org.enrichment.talent_scouting_backend.api.model.Student;
 import org.enrichment.talent_scouting_backend.service.student.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -25,4 +25,9 @@ public class CompanyDAOImpl implements CompanyDAO {
     public List<Company> getAllCompanies() {
         return List.of();
     }
+
+    @Override
+    public List<Company> addCompanyBulk(List<Company> companies) {
+        return List.of();
+    }
 }

@@ -1,6 +1,6 @@
 package org.enrichment.talent_scouting_backend.service.company;
 
-import org.enrichment.talent_scouting_backend.model.Company;
+import org.enrichment.talent_scouting_backend.api.model.Company;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;

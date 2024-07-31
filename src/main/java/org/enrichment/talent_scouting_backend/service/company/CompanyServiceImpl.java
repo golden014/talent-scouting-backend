@@ -2,8 +2,8 @@ package org.enrichment.talent_scouting_backend.service.company;
 
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.enrichment.talent_scouting_backend.dao.company.CompanyDAO;
-import org.enrichment.talent_scouting_backend.model.Company;
+import org.enrichment.talent_scouting_backend.api.dao.company.CompanyDAO;
+import org.enrichment.talent_scouting_backend.api.model.Company;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
