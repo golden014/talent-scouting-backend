@@ -1,4 +1,4 @@
-package org.enrichment.talent_scouting_backend.model;
+package org.enrichment.talent_scouting_backend.api.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;

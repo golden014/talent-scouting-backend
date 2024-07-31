@@ -1,7 +1,7 @@
 package org.enrichment.talent_scouting_backend.service.student;
 
-import org.enrichment.talent_scouting_backend.dao.student.StudentDAO;
-import org.enrichment.talent_scouting_backend.model.Student;
+import org.enrichment.talent_scouting_backend.api.dao.student.StudentDAO;
+import org.enrichment.talent_scouting_backend.api.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
