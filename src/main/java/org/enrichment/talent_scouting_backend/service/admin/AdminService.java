@@ -1,4 +1,4 @@
-package org.enrichment.talent_scouting_backend.service;
+package org.enrichment.talent_scouting_backend.service.admin;
 
 import org.enrichment.talent_scouting_backend.api.model.Admin;
 
