@@ -1,9 +1,11 @@
 package org.enrichment.talent_scouting_backend.api.dao.company;
 
 import org.enrichment.talent_scouting_backend.api.model.Company;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class CompanyDAOImpl implements CompanyDAO {
 
     @Override

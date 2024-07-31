@@ -1,4 +1,4 @@
-package org.enrichment.talent_scouting_backend.controller;
+package org.enrichment.talent_scouting_backend.api.controller;
 
 import org.enrichment.talent_scouting_backend.api.model.Company;
 import org.enrichment.talent_scouting_backend.service.company.CompanyService;
