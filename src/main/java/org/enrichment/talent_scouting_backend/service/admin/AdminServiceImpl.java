@@ -22,8 +22,8 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     @Transactional
-    public Admin login(String username, String password) {
-        return adminDAO.get(username, password);
+    public Admin login(String name, String password) {
+        return adminDAO.get(name, password);
     }
 
     @Override

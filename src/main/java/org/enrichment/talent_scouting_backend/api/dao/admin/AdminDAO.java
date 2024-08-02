@@ -10,7 +10,7 @@ public interface AdminDAO {
 
     Admin get(int id);
 
-    Admin get(String username, String password);
+    Admin get(String name, String password);
 
     Admin save(Admin admin);
 

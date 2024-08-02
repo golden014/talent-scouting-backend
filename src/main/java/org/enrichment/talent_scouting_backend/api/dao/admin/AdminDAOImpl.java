@@ -24,10 +24,10 @@ public class AdminDAOImpl implements AdminDAO {
     }
 
     @Override
-    public Admin get(String username, String password) {
-        String jpql = "SELECT a FROM Admin a WHERE a.name = :username AND a.password = :password";
+    public Admin get(String name, String password) {
+        String jpql = "SELECT a FROM Admin a WHERE a.name = :name AND a.password = :password";
         return em.createQuery(jpql, Admin.class)
-                .setParameter("username", username)
+                .setParameter("name", name)
                 .setParameter("password", password)
                 .getSingleResult();
     }

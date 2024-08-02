@@ -8,7 +8,7 @@ public interface AdminService {
 
     List<Admin> get();
 
-    Admin login(String username, String password);
+    Admin login(String name, String password);
 
     Admin save(Admin admin);
 

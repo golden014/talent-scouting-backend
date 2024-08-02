@@ -23,8 +23,8 @@ public class AdminController {
     }
 
     @PostMapping("/login")
-    public Admin login(String username, String password) {
-        return adminService.login(username, password);
+    public Admin login(String name, String password) {
+        return adminService.login(name, password);
     }
 
     @PostMapping("/save")
