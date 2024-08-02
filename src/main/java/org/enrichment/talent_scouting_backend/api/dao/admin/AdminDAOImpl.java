@@ -5,11 +5,18 @@ import org.enrichment.talent_scouting_backend.api.model.Admin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class AdminDAOImpl implements AdminDAO {
 
     @Autowired
     private EntityManager em;
+
+    @Override
+    public List<Admin> get() {
+        return em.createQuery("from Admin", Admin.class).getResultList();
+    }
 
     @Override
     public Admin get(int id) {
