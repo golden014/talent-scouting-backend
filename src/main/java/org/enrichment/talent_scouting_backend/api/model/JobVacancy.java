@@ -40,4 +40,84 @@ public class JobVacancy {
 
     @Column
     private String workTimeType;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    public JobType getJobType() {
+        return jobType;
+    }
+
+    public void setJobType(JobType jobType) {
+        this.jobType = jobType;
+    }
+
+    public Date getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(Date timeStamp) {
+        this.timeStamp = timeStamp;
+    }
+
+    public String getJobPosition() {
+        return jobPosition;
+    }
+
+    public void setJobPosition(String jobPosition) {
+        this.jobPosition = jobPosition;
+    }
+
+    public Date getEndDateTime() {
+        return endDateTime;
+    }
+
+    public void setEndDateTime(Date endDateTime) {
+        this.endDateTime = endDateTime;
+    }
+
+    public String getJobDescription() {
+        return jobDescription;
+    }
+
+    public void setJobDescription(String jobDescription) {
+        this.jobDescription = jobDescription;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getSalaryRange() {
+        return salaryRange;
+    }
+
+    public void setSalaryRange(String salaryRange) {
+        this.salaryRange = salaryRange;
+    }
+
+    public String getWorkTimeType() {
+        return workTimeType;
+    }
+
+    public void setWorkTimeType(String workTimeType) {
+        this.workTimeType = workTimeType;
+    }
 }
