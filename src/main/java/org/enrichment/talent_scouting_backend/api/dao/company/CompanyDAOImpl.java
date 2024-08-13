@@ -1,6 +1,11 @@
 package org.enrichment.talent_scouting_backend.api.dao.company;
 
+import jakarta.persistence.EntityManager;
 import org.enrichment.talent_scouting_backend.api.model.Company;
+import org.enrichment.talent_scouting_backend.api.model.Student;
+import org.hibernate.Session;
+import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -8,14 +13,18 @@ import java.util.List;
 @Repository
 public class CompanyDAOImpl implements CompanyDAO {
 
+    @Autowired
+    private EntityManager entityManager;
+
     @Override
     public Company getCompany(int id) {
-        return null;
+        return entityManager.find(Company.class, id);
     }
 
     @Override
     public Company save(Company company) {
-        return null;
+        entityManager.persist(company);
+        return company;
     }
 
     @Override
@@ -25,11 +34,16 @@ public class CompanyDAOImpl implements CompanyDAO {
 
     @Override
     public List<Company> getAllCompanies() {
-        return List.of();
+        Session session = entityManager.unwrap(Session.class);
+        Query<Company> query = session.createQuery("from Company ", Company.class);
+        return query.getResultList();
     }
 
     @Override
     public List<Company> addCompanyBulk(List<Company> companies) {
-        return List.of();
+        for (Company company : companies) {
+            entityManager.persist(company);
+        }
+        return companies;
     }
 }
