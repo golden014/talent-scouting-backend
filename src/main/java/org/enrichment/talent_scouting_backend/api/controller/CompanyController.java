@@ -37,6 +37,7 @@ public class CompanyController {
 
     @PostMapping("/insertCompanyBulk")
     public List<Company> insertCompanyBulk(@RequestParam("file") MultipartFile file) {
+        System.out.println("masuk");
         try {
             return companyService.addCompanyBulk(file);
         } catch (IOException e) {

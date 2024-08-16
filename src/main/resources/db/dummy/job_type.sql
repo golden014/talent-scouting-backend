@@ -1,0 +1,1 @@
+INSERT INTO talent_scouting_backend.job_type (job_type_name) VALUES ('Work From Office'), ('Work From Home')

@@ -47,14 +47,18 @@ public class CompanyServiceImpl implements CompanyService {
     @Transactional
     public List<Company> addCompanyBulk(MultipartFile file) throws IOException {
         List<Company> listCompany = new ArrayList<>();
-
+        System.out.println("Inside addCompanyBulk");
         try (Workbook workbook = new XSSFWorkbook(file.getInputStream())) {
             Sheet sheet = workbook.getSheetAt(0);
+            System.out.println("Sheet Name: " + sheet.getSheetName());
             for (Row row : sheet) {
                 //first row is a header
                 if (row.getRowNum() == 0) {
+                    System.out.println("First Row");
                     continue;
                 }
+
+                System.out.println("New Company: " + row.getRowNum());
                 Company company = new Company();
                 company.setName(row.getCell(0).getStringCellValue());
                 company.setLogoUrl(row.getCell(1).getStringCellValue());
