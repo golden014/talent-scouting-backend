@@ -10,32 +10,33 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
+@RequestMapping("/company")
 public class CompanyController {
 
     @Autowired
     private CompanyService companyService;
 
-    @GetMapping("/getCompanyById")
+    @GetMapping("/get")
     public Company getCompanyById(int id) {
         return companyService.getCompany(id);
     }
 
-    @GetMapping("/getAllCompany")
+    @GetMapping("/getAll")
     public List<Company> getAllCompany() {
         return companyService.getAllCompanies();
     }
 
-    @PostMapping("/insertCompany")
+    @PostMapping("/save")
     public Company insertCompany(Company company) {
         return companyService.save(company);
     }
 
-    @PostMapping("/deleteCompanyById")
+    @PostMapping("/delete")
     public void deleteCompanyById(int id) {
         companyService.deleteCompany(id);
     }
 
-    @PostMapping("/insertCompanyBulk")
+    @PostMapping("/saveBulk")
     public List<Company> insertCompanyBulk(@RequestParam("file") MultipartFile file) {
         System.out.println("masuk");
         try {
