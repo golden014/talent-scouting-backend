@@ -43,13 +43,16 @@ public class Student {
     @Column
     private String state;
 
+    @Lob
     @Column
     private String picture_url;
 
-    @Column
+    @Lob
+    @Column(columnDefinition = "TEXT")
     private String description;
 
-    @Column
+    @Lob
+    @Column(columnDefinition = "TEXT")
     private String personal_url;
 
     public Long getId() {

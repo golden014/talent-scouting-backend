@@ -14,10 +14,12 @@ public class Company {
     @Column(nullable = false, unique = true)
     private String name;
 
-    @Column
+    @Lob
+    @Column(columnDefinition = "TEXT")
     private String logoUrl;
 
-    @Column
+    @Lob
+    @Column (columnDefinition = "TEXT")
     private String description;
 
     @Column

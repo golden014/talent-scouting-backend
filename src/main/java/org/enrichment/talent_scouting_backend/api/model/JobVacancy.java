@@ -29,7 +29,8 @@ public class JobVacancy {
     @Column
     private Date endDateTime;
 
-    @Column
+    @Lob
+    @Column(columnDefinition = "TEXT")
     private String jobDescription;
 
     @Column

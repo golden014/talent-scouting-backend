@@ -22,7 +22,8 @@ public class JobApply {
     @Column
     private String status;
 
-    @Column
+    @Lob
+    @Column(columnDefinition = "TEXT")
     private String notes;
 
     public JobApplyID getJobApplyPK() {
