@@ -8,10 +8,10 @@ public class JobVacancySkill {
     @EmbeddedId
     private JobVacancySkillID jobVacancySkillPK;
 
-    @MapsId("jobVacancySkillId")
-    @JoinColumn(name = "job_vacancy_skill_id")
+    @MapsId("jobVacancyId")
+    @JoinColumn(name = "job_vacancy__id")
     @OneToOne
-    private JobVacancySkill jobVacancySkill;
+    private JobVacancy jobVacancy;
 
     @MapsId("skillId")
     @JoinColumn(name = "skill_id")
@@ -30,12 +30,12 @@ public class JobVacancySkill {
         this.jobVacancySkillPK = jobVacancySkillPK;
     }
 
-    public JobVacancySkill getJobVacancySkill() {
-        return jobVacancySkill;
+    public JobVacancy getJobVacancy() {
+        return jobVacancy;
     }
 
-    public void setJobVacancySkill(JobVacancySkill jobVacancySkill) {
-        this.jobVacancySkill = jobVacancySkill;
+    public void setJobVacancy(JobVacancy jobVacancy) {
+        this.jobVacancy = jobVacancy;
     }
 
     public Skill getSkill() {
