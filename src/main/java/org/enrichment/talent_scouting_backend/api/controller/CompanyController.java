@@ -1,6 +1,7 @@
 package org.enrichment.talent_scouting_backend.api.controller;
 
 import org.enrichment.talent_scouting_backend.api.model.Company;
+import org.enrichment.talent_scouting_backend.api.request.CompanyLogin;
 import org.enrichment.talent_scouting_backend.service.company.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -48,7 +49,7 @@ public class CompanyController {
     }
 
     @PostMapping("/loginCompany")
-    public Company loginCompany(String email, String password) {
-        return companyService.authenticate(email, password);
+    public Company loginCompany(CompanyLogin companyLogin) {
+        return companyService.authenticate(companyLogin.getEmail(), companyLogin.getPassword());
     }
 }
