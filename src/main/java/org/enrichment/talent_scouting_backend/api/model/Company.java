@@ -29,6 +29,9 @@ public class Company {
     private String password;
 
     @Column
+    private String salaryRange;
+
+    @Column
     private String location;
 
     public Long getId() {
@@ -85,5 +88,13 @@ public class Company {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getSalaryRange() {
+        return salaryRange;
+    }
+
+    public void setSalaryRange(String salaryRange) {
+        this.salaryRange = salaryRange;
     }
 }
