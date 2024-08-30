@@ -49,7 +49,8 @@ public class CompanyController {
     }
 
     @PostMapping("/loginCompany")
-    public Company loginCompany(CompanyLogin companyLogin) {
+    public Company loginCompany(@RequestBody CompanyLogin companyLogin) {
+        System.out.println(companyLogin.getEmail() + " " + companyLogin.getPassword());
         return companyService.authenticate(companyLogin.getEmail(), companyLogin.getPassword());
     }
 }
