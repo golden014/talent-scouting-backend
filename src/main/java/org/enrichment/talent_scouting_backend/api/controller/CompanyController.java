@@ -46,4 +46,9 @@ public class CompanyController {
             return null;
         }
     }
+
+    @PostMapping("/loginCompany")
+    public Company loginCompany(String email, String password) {
+        return companyService.authenticate(email, password);
+    }
 }

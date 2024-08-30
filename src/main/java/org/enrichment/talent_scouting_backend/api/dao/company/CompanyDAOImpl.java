@@ -1,6 +1,7 @@
 package org.enrichment.talent_scouting_backend.api.dao.company;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import org.enrichment.talent_scouting_backend.api.model.Company;
 import org.enrichment.talent_scouting_backend.api.model.Student;
 import org.hibernate.Session;
@@ -45,5 +46,19 @@ public class CompanyDAOImpl implements CompanyDAO {
             entityManager.persist(company);
         }
         return companies;
+    }
+
+    @Override
+    public Company authenticate(String email, String password) {
+        try {
+            return entityManager.createQuery(
+                            "SELECT c FROM Company c WHERE c.email = :email AND c.password = :password",
+                            Company.class)
+                    .setParameter("email", email)
+                    .setParameter("password", password)
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 }

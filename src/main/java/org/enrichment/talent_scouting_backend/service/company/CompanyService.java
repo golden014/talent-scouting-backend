@@ -16,4 +16,6 @@ public interface CompanyService {
     List<Company> getAllCompanies();
 
     List<Company> addCompanyBulk(MultipartFile file) throws IOException;
+
+    Company authenticate(String username, String password);
 }

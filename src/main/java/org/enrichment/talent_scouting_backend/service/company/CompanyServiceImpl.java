@@ -71,4 +71,9 @@ public class CompanyServiceImpl implements CompanyService {
 
         return companyDAO.addCompanyBulk(listCompany);
     }
+
+    @Override
+    public Company authenticate(String username, String password) {
+        return companyDAO.authenticate(username, password);
+    }
 }

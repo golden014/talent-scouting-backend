@@ -14,4 +14,6 @@ public interface CompanyDAO {
     List<Company> getAllCompanies();
 
     List<Company> addCompanyBulk(List<Company> companies);
+
+    Company authenticate(String username, String password);
 }
