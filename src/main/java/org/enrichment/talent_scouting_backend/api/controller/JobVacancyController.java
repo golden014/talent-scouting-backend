@@ -1,7 +1,10 @@
 package org.enrichment.talent_scouting_backend.api.controller;
 
 import org.enrichment.talent_scouting_backend.api.model.JobVacancy;
+import org.enrichment.talent_scouting_backend.api.request.InsertJobVacancy;
 import org.enrichment.talent_scouting_backend.service.job_vacancy.JobVacancyService;
+import org.enrichment.talent_scouting_backend.service.job_vacancy_skill.JobVacancySkillService;
+import org.hibernate.sql.Insert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,4 +29,11 @@ public class JobVacancyController {
     public void deleteVacancy(@RequestBody JobVacancy jobVacancy) {
         jobVacancyService.deleteJobVacancy(jobVacancy);
     }
+
+    @PostMapping("/addJobVacancy")
+    public JobVacancy addJobVacancy(@RequestBody InsertJobVacancy data) {
+        return jobVacancyService.addJobVacancy(data);
+    }
 }
+
+
