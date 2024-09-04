@@ -5,12 +5,14 @@ import org.enrichment.talent_scouting_backend.api.model.JobVacancy;
 import org.enrichment.talent_scouting_backend.api.model.JobVacancyResponsibility;
 import org.enrichment.talent_scouting_backend.api.model.JobVacancySkill;
 import org.enrichment.talent_scouting_backend.api.request.InsertJobVacancy;
+import org.enrichment.talent_scouting_backend.api.request.JobVacancyFilter;
 import org.enrichment.talent_scouting_backend.service.extras_info.ExtrasInfoService;
 import org.enrichment.talent_scouting_backend.service.job_vacancy.JobVacancyService;
 import org.enrichment.talent_scouting_backend.service.job_vacancy_responsibility.JobVacancyResponsibilityService;
 import org.enrichment.talent_scouting_backend.service.job_vacancy_skill.JobVacancySkillService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -68,6 +70,19 @@ public class JobVacancyController {
     @PostMapping("/addExtrasInfo")
     public List<ExtrasInfo> addExtrasInfo(@RequestBody List<ExtrasInfo> extrasInfos) {
         return extrasInfoService.addExtrasInfos(extrasInfos);
+    }
+
+    // @GetMapping("/job-vacancies")
+    //    public List<JobVacancy> getJobVacancies(
+    //            @RequestParam(required = false) String location,
+    //            @RequestParam(required = false) String jobPosition,
+    //            @RequestParam(required = false) Long jobTypeId) {
+    //        return jobVacancyService.getFilteredJobVacancies(location, jobPosition, jobTypeId);
+    //    }
+
+    @PostMapping("/getJobVacancyWithFilter")
+    public List<JobVacancy> getJobVacancyWithFilter(@RequestBody JobVacancyFilter jobVacancyFilter) {
+        return jobVacancyService.getJobVacanciesByFilters(jobVacancyFilter);
     }
 
 }

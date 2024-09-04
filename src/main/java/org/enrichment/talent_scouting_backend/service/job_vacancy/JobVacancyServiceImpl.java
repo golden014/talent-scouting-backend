@@ -6,12 +6,15 @@ import org.enrichment.talent_scouting_backend.api.model.JobVacancy;
 import org.enrichment.talent_scouting_backend.api.model.JobVacancyResponsibility;
 import org.enrichment.talent_scouting_backend.api.model.JobVacancySkill;
 import org.enrichment.talent_scouting_backend.api.request.InsertJobVacancy;
+import org.enrichment.talent_scouting_backend.api.request.JobVacancyFilter;
 import org.enrichment.talent_scouting_backend.service.extras_info.ExtrasInfoService;
 import org.enrichment.talent_scouting_backend.service.job_vacancy_responsibility.JobVacancyResponsibilityService;
 import org.enrichment.talent_scouting_backend.service.job_vacancy_skill.JobVacancySkillService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 public class JobVacancyServiceImpl implements JobVacancyService {
@@ -62,5 +65,11 @@ public class JobVacancyServiceImpl implements JobVacancyService {
         }
 
         return data.getJobVacancy();
+    }
+
+    @Transactional
+    @Override
+    public List<JobVacancy> getJobVacanciesByFilters(JobVacancyFilter jobVacancyFilter) {
+        return jobVacancyDAO.getJobVacanciesByFilters(jobVacancyFilter);
     }
 }
