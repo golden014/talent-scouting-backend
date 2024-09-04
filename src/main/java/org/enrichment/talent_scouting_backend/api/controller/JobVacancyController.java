@@ -1,9 +1,7 @@
 package org.enrichment.talent_scouting_backend.api.controller;
 
-import org.enrichment.talent_scouting_backend.api.model.ExtrasInfo;
-import org.enrichment.talent_scouting_backend.api.model.JobVacancy;
-import org.enrichment.talent_scouting_backend.api.model.JobVacancyResponsibility;
-import org.enrichment.talent_scouting_backend.api.model.JobVacancySkill;
+import org.enrichment.talent_scouting_backend.api.model.*;
+import org.enrichment.talent_scouting_backend.api.request.GetVacancyByCompanyId;
 import org.enrichment.talent_scouting_backend.api.request.InsertJobVacancy;
 import org.enrichment.talent_scouting_backend.api.request.JobVacancyFilter;
 import org.enrichment.talent_scouting_backend.service.extras_info.ExtrasInfoService;
@@ -83,6 +81,12 @@ public class JobVacancyController {
     @PostMapping("/getJobVacancyWithFilter")
     public List<JobVacancy> getJobVacancyWithFilter(@RequestBody JobVacancyFilter jobVacancyFilter) {
         return jobVacancyService.getJobVacanciesByFilters(jobVacancyFilter);
+    }
+
+    @PostMapping("/getJobVacancyByCompanyId")
+    public List<JobVacancy> getJobVacanciesByCompanyId(@RequestBody GetVacancyByCompanyId data) {
+        System.out.println(data.getCompanyId());
+        return jobVacancyService.getJobVacancyByCompanyId(data.getCompanyId());
     }
 
 }

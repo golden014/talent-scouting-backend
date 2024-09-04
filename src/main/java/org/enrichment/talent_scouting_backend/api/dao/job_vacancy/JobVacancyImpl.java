@@ -1,8 +1,10 @@
 package org.enrichment.talent_scouting_backend.api.dao.job_vacancy;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.*;
 import org.enrichment.talent_scouting_backend.api.model.Company;
+import org.enrichment.talent_scouting_backend.api.model.JobApply;
 import org.enrichment.talent_scouting_backend.api.model.JobVacancy;
 import org.enrichment.talent_scouting_backend.api.request.JobVacancyFilter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -83,5 +85,14 @@ public class JobVacancyImpl implements JobVacancyDAO{
         query.where(predicates.toArray(new Predicate[0]));
 
         return entityManager.createQuery(query).getResultList();
+    }
+
+    @Override
+    public List<JobVacancy> getJobVacancyByCompanyId(Long companyID) {
+        System.out.println(companyID);
+        String hql = "FROM JobVacancy ja WHERE ja.company.id = :companyId";
+        TypedQuery<JobVacancy> query = entityManager.createQuery(hql, JobVacancy.class);
+        query.setParameter("companyId", companyID);
+        return query.getResultList();
     }
 }

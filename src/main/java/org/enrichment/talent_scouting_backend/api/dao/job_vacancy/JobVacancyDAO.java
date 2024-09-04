@@ -14,4 +14,6 @@ public interface JobVacancyDAO {
     JobVacancy getJobVacancyByID(Long jobVacancyID);
 
     List<JobVacancy> getJobVacanciesByFilters(JobVacancyFilter jobVacancyFilter);
+
+    List<JobVacancy> getJobVacancyByCompanyId(Long companyID);
 }

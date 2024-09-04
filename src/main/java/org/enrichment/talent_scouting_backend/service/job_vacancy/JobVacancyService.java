@@ -15,4 +15,6 @@ public interface JobVacancyService {
     JobVacancy addJobVacancy(InsertJobVacancy data);
 
     List<JobVacancy> getJobVacanciesByFilters(JobVacancyFilter jobVacancyFilter);
+
+    List<JobVacancy> getJobVacancyByCompanyId(Long companyID);
 }
