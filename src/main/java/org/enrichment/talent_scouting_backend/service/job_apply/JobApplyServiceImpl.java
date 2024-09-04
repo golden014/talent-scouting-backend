@@ -31,4 +31,10 @@ public class JobApplyServiceImpl implements JobApplyService{
     public List<JobApply> getAllJobApplys(Long job_vacancy_id) {
         return jobApplyDAO.getAllJobApplys(job_vacancy_id);
     }
+
+    @Transactional
+    @Override
+    public JobApply updateJobApply(JobApply jobApply) {
+        return jobApplyDAO.updateJobApply(jobApply);
+    }
 }

@@ -8,5 +8,6 @@ public interface JobApplyService {
     JobApply save(JobApply jobApply);
     JobApply getJobApply(Long jobId);
     List<JobApply> getAllJobApplys(Long job_vacancy_id);
+    JobApply updateJobApply(JobApply jobApply);
 
 }

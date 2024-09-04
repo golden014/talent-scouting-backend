@@ -34,4 +34,9 @@ public class JobApplyImpl implements JobApplyDAO{
         query.setParameter("jobVacancyId", jobVacancyId);
         return query.getResultList();
     }
+
+    @Override
+    public JobApply updateJobApply(JobApply jobApply) {
+        return entityManager.merge(jobApply);
+    }
 }

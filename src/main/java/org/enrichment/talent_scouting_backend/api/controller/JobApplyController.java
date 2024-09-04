@@ -43,4 +43,12 @@ public class JobApplyController {
     public List<JobApply> getJobApplyByVacancyId(Long jobVacancyId) {
         return jobApplyService.getAllJobApplys(jobVacancyId);
     }
+
+    @PostMapping("/updateJobApply")
+    public ResponseEntity<JobApply> updateJobApply(@RequestBody JobApply jobApply) {
+        if (jobApplyService.updateJobApply(jobApply) != null) {
+            return ResponseEntity.ok(jobApply);
+        }
+        return ResponseEntity.badRequest().build();
+    }
 }
