@@ -9,13 +9,11 @@ public class JobApply {
     @EmbeddedId
     private JobApplyID jobApplyPK;
 
-    @MapsId("jobVacancyId")
-    @JoinColumn(name = "job_vacancy_id")
+    @JoinColumn(name = "job_vacancy_id", insertable = false, updatable = false)
     @OneToOne
     private JobVacancy jobVacancy;
 
-    @MapsId("studentId")
-    @JoinColumn(name = "student_id")
+    @JoinColumn(name = "student_id", insertable = false, updatable = false)
     @OneToOne
     private Student student;
 

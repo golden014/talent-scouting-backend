@@ -22,15 +22,16 @@ public class JobApplyImpl implements JobApplyDAO{
     }
 
     @Override
-    public JobApply getJobApply(long jobId) {
+    public JobApply getJobApply(Long jobId) {
         return entityManager.find(JobApply.class, jobId);
     }
 
     @Override
-    public List<JobApply> getAllJobApplys(long job_vacancy_id) {
+    public List<JobApply> getAllJobApplys(Long jobVacancyId) {
+        System.out.println(jobVacancyId);
         String hql = "FROM JobApply ja WHERE ja.jobVacancy.id = :jobVacancyId";
         TypedQuery<JobApply> query = entityManager.createQuery(hql, JobApply.class);
-        query.setParameter("jobVacancyId", job_vacancy_id);
+        query.setParameter("jobVacancyId", jobVacancyId);
         return query.getResultList();
     }
 }

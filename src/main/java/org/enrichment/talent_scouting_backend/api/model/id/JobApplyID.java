@@ -8,32 +8,32 @@ import jakarta.persistence.Embeddable;
 @Embeddable
 public class JobApplyID {
 
-    @Column
-    private long jobVacancyId;
+    @Column(name = "job_vacancy_id")
+    private Long jobVacancyId;
 
-    @Column
-    private long studentId;
+    @Column(name = "student_id")
+    private Long studentId;
 
     public JobApplyID() {}
 
-    public JobApplyID(long jobVacancyId, long studentId) {
+    public JobApplyID(Long jobVacancyId, Long studentId) {
         this.jobVacancyId = jobVacancyId;
         this.studentId = studentId;
     }
 
-    public long getJobVacancyId() {
+    public Long getJobVacancyId() {
         return jobVacancyId;
     }
 
-    public void setJobVacancyId(long jobVacancyId) {
+    public void setJobVacancyId(Long jobVacancyId) {
         this.jobVacancyId = jobVacancyId;
     }
 
-    public long getStudentId() {
+    public Long getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(long studentId) {
+    public void setStudentId(Long studentId) {
         this.studentId = studentId;
     }
 }

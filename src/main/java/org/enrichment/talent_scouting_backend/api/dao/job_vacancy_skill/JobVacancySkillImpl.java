@@ -14,6 +14,11 @@ public class JobVacancySkillImpl implements JobVacancySkillDAO{
 
     @Override
     public JobVacancySkill addSkill(JobVacancySkill skill) {
+        System.out.println(skill.getSkill());
+        System.out.println(skill.getSkillDetail());
+        System.out.println(skill.getJobVacancySkillPK());
+        System.out.println(skill.getJobVacancy());
+
         entityManager.persist(skill);
         return skill;
     }

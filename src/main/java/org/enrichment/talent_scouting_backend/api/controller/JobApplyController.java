@@ -18,6 +18,11 @@ public class JobApplyController {
 
     @PostMapping("/addJobApply")
     public ResponseEntity<JobApply> addJobApply(@RequestBody JobApply jobApply) {
+
+        System.out.println("Received JobApply JobVacancyId: " + jobApply.getJobApplyPK().getJobVacancyId());
+        System.out.println("Received JobApply student ID:" + jobApply.getJobApplyPK().getStudentId());
+        System.out.println("Notes: " + jobApply.getNotes());
+
         if (jobApplyService.save(jobApply) != null) {
             return ResponseEntity.ok(jobApply);
         }
@@ -35,7 +40,7 @@ public class JobApplyController {
     }
 
     @GetMapping("/getJobApplyByVacancyId")
-    public List<JobApply> getJobApplyByVacancyId(long job_vacancyId) {
-        return jobApplyService.getAllJobApplys(job_vacancyId);
+    public List<JobApply> getJobApplyByVacancyId(Long jobVacancyId) {
+        return jobApplyService.getAllJobApplys(jobVacancyId);
     }
 }

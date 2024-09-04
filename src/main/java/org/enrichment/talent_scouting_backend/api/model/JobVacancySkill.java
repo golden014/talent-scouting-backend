@@ -8,14 +8,12 @@ public class JobVacancySkill {
     @EmbeddedId
     private JobVacancySkillID jobVacancySkillPK;
 
-    @MapsId("jobVacancyId")
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "job_vacancy_id")
+    @JoinColumn(name = "job_vacancy_id", insertable=false, updatable=false)
     private JobVacancy jobVacancy;
 
-    @MapsId("skillId")
     @OneToOne
-    @JoinColumn(name = "skill_id")
+    @JoinColumn(name = "skill_id", insertable=false, updatable=false)
     private Skill skill;
 
     @Lob

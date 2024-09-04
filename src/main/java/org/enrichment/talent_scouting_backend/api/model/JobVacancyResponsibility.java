@@ -32,4 +32,12 @@ public class JobVacancyResponsibility {
     public void setResponsibilityDetail(String responsibilityDetail) {
         this.responsibilityDetail = responsibilityDetail;
     }
+
+    public JobVacancy getJobVacancy() {
+        return jobVacancy;
+    }
+
+    public void setJobVacancy(JobVacancy jobVacancy) {
+        this.jobVacancy = jobVacancy;
+    }
 }

@@ -52,6 +52,11 @@ public class JobVacancyController {
 
     @PostMapping("/addJobVacancySkills")
     public List<JobVacancySkill> addJobVacancySkills(@RequestBody List<JobVacancySkill> jobVacancySkills) {
+        for (JobVacancySkill skill: jobVacancySkills) {
+            System.out.println("Received JobVacancySkill: " + skill);
+            System.out.println("JobVacancySkillPK: " + skill.getJobVacancySkillPK().getJobVacancyId());
+            System.out.println("JobVacancySkillPK: " + skill.getJobVacancySkillPK().getSkillId());
+        }
         return jobVacancySkillService.addSkills(jobVacancySkills);
     }
 

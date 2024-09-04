@@ -43,15 +43,15 @@ public class JobVacancySkillServiceImpl implements JobVacancySkillService {
 
         for (JobVacancySkill skill : skills) {
 
-            JobVacancy jobVacancy = jobVacancyDAO.getJobVacancyByID(skill.getJobVacancy().getId());
+//            JobVacancy jobVacancy = jobVacancyDAO.getJobVacancyByID(skill.getJobVacancy().getId());
+//
+//            JobVacancySkill newSkill = new JobVacancySkill();
+//            newSkill.setJobVacancy(jobVacancy);
+//            newSkill.setSkill(skill.getSkill());
+//            newSkill.setSkillDetail(skill.getSkillDetail());
 
-            JobVacancySkill newSkill = new JobVacancySkill();
-            newSkill.setJobVacancy(jobVacancy);
-            newSkill.setSkill(skill.getSkill());
-            newSkill.setSkillDetail(skill.getSkillDetail());
-
-            addSkill(newSkill);
-//            addSkill(skill);
+//            addSkill(newSkill);
+            addSkill(skill);
         }
         return skills;
     }

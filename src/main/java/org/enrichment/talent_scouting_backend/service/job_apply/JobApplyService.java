@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface JobApplyService {
     JobApply save(JobApply jobApply);
-    JobApply getJobApply(long jobId);
-    List<JobApply> getAllJobApplys(long job_vacancy_id);
+    JobApply getJobApply(Long jobId);
+    List<JobApply> getAllJobApplys(Long job_vacancy_id);
 
 }

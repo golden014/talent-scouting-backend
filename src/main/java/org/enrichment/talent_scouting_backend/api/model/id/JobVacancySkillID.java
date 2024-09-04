@@ -2,13 +2,17 @@ package org.enrichment.talent_scouting_backend.api.model.id;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
+import org.enrichment.talent_scouting_backend.api.model.JobVacancy;
+import org.enrichment.talent_scouting_backend.api.model.Skill;
+
+import java.util.Objects;
 
 @Embeddable
 public class JobVacancySkillID {
-    @Column
+    @Column(name = "job_vacancy_id")
     private Long jobVacancyId;
 
-    @Column
+    @Column(name = "skill_id")
     private Long skillId;
 
     public JobVacancySkillID() {}
@@ -32,5 +36,19 @@ public class JobVacancySkillID {
 
     public void setSkillId(Long skillId) {
         this.skillId = skillId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        JobVacancySkillID that = (JobVacancySkillID) o;
+        return Objects.equals(jobVacancyId, that.jobVacancyId) &&
+                Objects.equals(skillId, that.skillId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(jobVacancyId, skillId);
     }
 }
