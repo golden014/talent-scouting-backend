@@ -9,4 +9,5 @@ public interface JobVacancyResponsibilityService {
     JobVacancyResponsibility addJobVacancyResponsibility(JobVacancyResponsibility responsibility);
     List<JobVacancyResponsibility> getJobVacancyResponsibilitiesByVacancyId(long jobVacancyId);
     void deleteJobVacancyResponsibility(long jobvacancyResponsibilityId);
+    List<JobVacancyResponsibility> addJobVacancyResponsibilites(List<JobVacancyResponsibility> responsibilities);
 }

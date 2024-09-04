@@ -7,4 +7,6 @@ public interface JobVacancyDAO {
     JobVacancy addJobVacancy(JobVacancy jobVacancy);
 
     void deleteJobVacancy(JobVacancy jobVacancy);
+
+    JobVacancy getJobVacancyByID(Long jobVacancyID);
 }

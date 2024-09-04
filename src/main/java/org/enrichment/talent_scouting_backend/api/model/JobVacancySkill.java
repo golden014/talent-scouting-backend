@@ -9,13 +9,13 @@ public class JobVacancySkill {
     private JobVacancySkillID jobVacancySkillPK;
 
     @MapsId("jobVacancyId")
-    @JoinColumn(name = "job_vacancy__id")
-    @OneToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "job_vacancy_id")
     private JobVacancy jobVacancy;
 
     @MapsId("skillId")
-    @JoinColumn(name = "skill_id")
     @OneToOne
+    @JoinColumn(name = "skill_id")
     private Skill skill;
 
     @Lob

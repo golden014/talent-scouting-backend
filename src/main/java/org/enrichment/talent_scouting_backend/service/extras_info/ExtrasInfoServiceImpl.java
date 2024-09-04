@@ -37,4 +37,13 @@ public class ExtrasInfoServiceImpl implements ExtrasInfoService {
     public List<ExtrasInfo> getExtrasInfosByJobVacancy(Long jobVacancyId) {
         return extrasInfoDAO.getExtrasInfosByJobVacancy(jobVacancyId);
     }
+
+    @Transactional
+    @Override
+    public List<ExtrasInfo> addExtrasInfos(List<ExtrasInfo> extrasInfos) {
+        for (ExtrasInfo extrasInfo : extrasInfos) {
+            extrasInfoDAO.addExtrasInfo(extrasInfo);
+        }
+        return extrasInfos;
+    }
 }

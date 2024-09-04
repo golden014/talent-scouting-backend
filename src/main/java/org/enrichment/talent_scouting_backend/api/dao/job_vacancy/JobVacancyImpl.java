@@ -21,4 +21,9 @@ public class JobVacancyImpl implements JobVacancyDAO{
     public void deleteJobVacancy(JobVacancy jobVacancy) {
         entityManager.remove(jobVacancy);
     }
+
+    @Override
+    public JobVacancy getJobVacancyByID(Long jobVacancyID) {
+        return entityManager.find(JobVacancy.class, jobVacancyID);
+    }
 }

@@ -13,4 +13,6 @@ public interface ExtrasInfoService {
     void deleteExtrasInfo(ExtrasInfo extrasInfo);
 
     List<ExtrasInfo> getExtrasInfosByJobVacancy(Long jobVacancyId);
+
+    List<ExtrasInfo> addExtrasInfos(List<ExtrasInfo> extrasInfos);
 }

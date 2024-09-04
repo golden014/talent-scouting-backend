@@ -19,14 +19,14 @@ public class JobVacancySkillImpl implements JobVacancySkillDAO{
     }
 
     @Override
-    public JobVacancySkill getJobVacancySkill(long jobVacancyId, long skillId) {
+    public JobVacancySkill getJobVacancySkill(Long jobVacancyId, Long skillId) {
         //bikin composite key nya dulu
         JobVacancySkillID id = new JobVacancySkillID(jobVacancyId, skillId);
         return entityManager.find(JobVacancySkill.class, id);
     }
 
     @Override
-    public void deleteSkill(long jobVacancyId, long skillId) {
+    public void deleteSkill(Long jobVacancyId, Long skillId) {
         entityManager.remove(getJobVacancySkill(jobVacancyId, skillId));
     }
 }

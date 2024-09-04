@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class JobType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     private Long id;
 
     @Column(nullable = false)
