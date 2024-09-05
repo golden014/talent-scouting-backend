@@ -37,4 +37,9 @@ public class JobApplyServiceImpl implements JobApplyService{
     public JobApply updateJobApply(JobApply jobApply) {
         return jobApplyDAO.updateJobApply(jobApply);
     }
+
+    @Override
+    public List<JobApply> getJobApplyByStudentId(Long studentId) {
+        return jobApplyDAO.getJobApplyByStudentId(studentId);
+    }
 }

@@ -3,6 +3,7 @@ package org.enrichment.talent_scouting_backend.api.controller;
 
 import org.enrichment.talent_scouting_backend.api.model.JobApply;
 import org.enrichment.talent_scouting_backend.api.model.JobVacancy;
+import org.enrichment.talent_scouting_backend.api.request.SingleIDRequest;
 import org.enrichment.talent_scouting_backend.service.job_apply.JobApplyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -50,5 +51,10 @@ public class JobApplyController {
             return ResponseEntity.ok(jobApply);
         }
         return ResponseEntity.badRequest().build();
+    }
+
+    @PostMapping("/getJobApplyByCompanyId")
+    public List<JobApply> getJobApplyByStudentId(@RequestBody SingleIDRequest data) {
+        return jobApplyService.getJobApplyByStudentId(data.getId());
     }
 }

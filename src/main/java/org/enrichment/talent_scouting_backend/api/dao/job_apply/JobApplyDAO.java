@@ -10,4 +10,5 @@ public interface JobApplyDAO {
     JobApply getJobApply(Long jobId);
     List<JobApply> getAllJobApplys(Long job_vacancy_id);
     JobApply updateJobApply(JobApply jobApply);
+    List<JobApply> getJobApplyByStudentId(Long studentId);
 }

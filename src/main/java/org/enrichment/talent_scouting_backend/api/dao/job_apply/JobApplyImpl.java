@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import org.enrichment.talent_scouting_backend.api.model.JobApply;
+import org.enrichment.talent_scouting_backend.api.model.JobVacancy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -38,5 +39,13 @@ public class JobApplyImpl implements JobApplyDAO{
     @Override
     public JobApply updateJobApply(JobApply jobApply) {
         return entityManager.merge(jobApply);
+    }
+
+    @Override
+    public List<JobApply> getJobApplyByStudentId(Long studentId) {
+        String hql = "FROM JobApply ja WHERE ja.student.id = :studentId";
+        TypedQuery<JobApply> query = entityManager.createQuery(hql, JobApply.class);
+        query.setParameter("studentId", studentId);
+        return query.getResultList();
     }
 }

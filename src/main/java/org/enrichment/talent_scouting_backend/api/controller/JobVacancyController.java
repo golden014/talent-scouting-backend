@@ -1,7 +1,7 @@
 package org.enrichment.talent_scouting_backend.api.controller;
 
 import org.enrichment.talent_scouting_backend.api.model.*;
-import org.enrichment.talent_scouting_backend.api.request.GetVacancyByCompanyId;
+import org.enrichment.talent_scouting_backend.api.request.SingleIDRequest;
 import org.enrichment.talent_scouting_backend.api.request.InsertJobVacancy;
 import org.enrichment.talent_scouting_backend.api.request.JobVacancyFilter;
 import org.enrichment.talent_scouting_backend.service.extras_info.ExtrasInfoService;
@@ -10,7 +10,6 @@ import org.enrichment.talent_scouting_backend.service.job_vacancy_responsibility
 import org.enrichment.talent_scouting_backend.service.job_vacancy_skill.JobVacancySkillService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -84,11 +83,10 @@ public class JobVacancyController {
     }
 
     @PostMapping("/getJobVacancyByCompanyId")
-    public List<JobVacancy> getJobVacanciesByCompanyId(@RequestBody GetVacancyByCompanyId data) {
-        System.out.println(data.getCompanyId());
-        return jobVacancyService.getJobVacancyByCompanyId(data.getCompanyId());
+    public List<JobVacancy> getJobVacanciesByCompanyId(@RequestBody SingleIDRequest data) {
+        System.out.println(data.getId());
+        return jobVacancyService.getJobVacancyByCompanyId(data.getId());
     }
-
 }
 
 
