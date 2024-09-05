@@ -4,6 +4,7 @@ import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.enrichment.talent_scouting_backend.api.dao.company.CompanyDAO;
 import org.enrichment.talent_scouting_backend.api.model.Company;
+import org.enrichment.talent_scouting_backend.api.request.CompanyFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -75,5 +76,10 @@ public class CompanyServiceImpl implements CompanyService {
     @Override
     public Company authenticate(String username, String password) {
         return companyDAO.authenticate(username, password);
+    }
+
+    @Override
+    public List<Company> getCompanyByFilter(CompanyFilter filter) {
+        return companyDAO.getCompanyByFilter(filter);
     }
 }

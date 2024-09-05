@@ -1,6 +1,7 @@
 package org.enrichment.talent_scouting_backend.api.dao.company;
 
 import org.enrichment.talent_scouting_backend.api.model.Company;
+import org.enrichment.talent_scouting_backend.api.request.CompanyFilter;
 
 import java.util.List;
 
@@ -16,4 +17,6 @@ public interface CompanyDAO {
     List<Company> addCompanyBulk(List<Company> companies);
 
     Company authenticate(String username, String password);
+
+    List<Company> getCompanyByFilter(CompanyFilter filter);
 }

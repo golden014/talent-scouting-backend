@@ -1,6 +1,7 @@
 package org.enrichment.talent_scouting_backend.api.controller;
 
 import org.enrichment.talent_scouting_backend.api.model.Company;
+import org.enrichment.talent_scouting_backend.api.request.CompanyFilter;
 import org.enrichment.talent_scouting_backend.api.request.CompanyLogin;
 import org.enrichment.talent_scouting_backend.service.company.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,5 +53,10 @@ public class CompanyController {
     public Company loginCompany(@RequestBody CompanyLogin companyLogin) {
         System.out.println(companyLogin.getEmail() + " " + companyLogin.getPassword());
         return companyService.authenticate(companyLogin.getEmail(), companyLogin.getPassword());
+    }
+
+    @PostMapping("/getCompanyByFilter")
+    public List<Company> getCompanyByFilter(@RequestBody CompanyFilter companyFilter) {
+        return companyService.getCompanyByFilter(companyFilter);
     }
 }
