@@ -10,6 +10,7 @@ import org.enrichment.talent_scouting_backend.service.job_vacancy.JobVacancyServ
 import org.enrichment.talent_scouting_backend.service.job_vacancy_responsibility.JobVacancyResponsibilityService;
 import org.enrichment.talent_scouting_backend.service.job_vacancy_skill.JobVacancySkillService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.batch.BatchProperties;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -100,6 +101,15 @@ public class JobVacancyController {
     @GetMapping("/getPopularJobVacancy")
     public ResponseEntity<List<JobVacancy>> getJobPopularJobVacancy(@RequestParam("topCount") Long topCount) {
         List<JobVacancy> output = jobVacancyService.getTopJobVacancy(topCount);
+        if (output != null) {
+            return ResponseEntity.ok(output);
+        }
+        return ResponseEntity.badRequest().build();
+    }
+
+    @GetMapping("/getLatestJobByCompanyId")
+    public ResponseEntity<List<JobVacancy>> getLatestJobByCompanyId(@RequestParam("companyId") Long companyId, @RequestParam("latestCount") Long latestCount) {
+        List<JobVacancy> output = jobVacancyService.getLatestJobVacancyByCompanyId(companyId, latestCount);
         if (output != null) {
             return ResponseEntity.ok(output);
         }

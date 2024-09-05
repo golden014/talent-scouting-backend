@@ -147,4 +147,17 @@ public class JobVacancyImpl implements JobVacancyDAO{
                 .setMaxResults(Math.toIntExact(topCount)) //limit top based on top count nya
                 .getResultList();
     }
+
+    @Override
+    public List<JobVacancy> getLatestJobVacancyByCompanyId(Long companyId, Long latestCount) {
+
+        String hql = "SELECT jv FROM JobVacancy jv " +
+                "WHERE jv.company.id = :companyId " +
+                "ORDER BY jv.timeStamp DESC";
+
+        TypedQuery<JobVacancy> query = entityManager.createQuery(hql, JobVacancy.class);
+        query.setParameter("companyId", companyId);
+
+        return query.setMaxResults(Math.toIntExact(latestCount)).getResultList();
+    }
 }

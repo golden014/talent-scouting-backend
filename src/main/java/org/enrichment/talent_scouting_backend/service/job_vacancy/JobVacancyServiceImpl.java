@@ -89,4 +89,9 @@ public class JobVacancyServiceImpl implements JobVacancyService {
     public List<JobVacancy> getTopJobVacancy(Long topCount) {
         return jobVacancyDAO.getTopJobVacancy(topCount);
     }
+
+    @Override
+    public List<JobVacancy> getLatestJobVacancyByCompanyId(Long companyId, Long latestCount) {
+        return jobVacancyDAO.getLatestJobVacancyByCompanyId(companyId, latestCount);
+    }
 }
