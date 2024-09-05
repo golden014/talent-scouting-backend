@@ -160,4 +160,10 @@ public class JobVacancyImpl implements JobVacancyDAO{
 
         return query.setMaxResults(Math.toIntExact(latestCount)).getResultList();
     }
+
+    @Override
+    public List<String> getJobVacancyLocations() {
+        String query = "SELECT DISTINCT jv.location FROM JobVacancy jv";
+        return entityManager.createQuery(query, String.class).getResultList();
+    }
 }

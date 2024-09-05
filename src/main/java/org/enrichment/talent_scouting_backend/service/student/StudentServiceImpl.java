@@ -1,6 +1,7 @@
 package org.enrichment.talent_scouting_backend.service.student;
 
 import org.enrichment.talent_scouting_backend.api.dao.student.StudentDAO;
+import org.enrichment.talent_scouting_backend.api.dto.StudentFilter;
 import org.enrichment.talent_scouting_backend.api.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,5 +36,10 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public void delete(int id) {
         studentDAO.delete(id);
+    }
+
+    @Override
+    public List<Student> getStudentByFilter(StudentFilter studentFilter) {
+        return studentDAO.getStudentByFilter(studentFilter);
     }
 }

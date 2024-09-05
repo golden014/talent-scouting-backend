@@ -115,6 +115,15 @@ public class JobVacancyController {
         }
         return ResponseEntity.badRequest().build();
     }
+
+    @GetMapping("/getJobVacancyLocations")
+    public ResponseEntity<List<String>> getJobVacancyLocations() {
+        List<String> output = jobVacancyService.getJobVacancyLocations();
+        if (output != null) {
+            return ResponseEntity.ok(output);
+        }
+        return ResponseEntity.badRequest().build();
+    }
 }
 
 

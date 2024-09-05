@@ -22,6 +22,7 @@ public interface JobVacancyService {
     JobVacancyAllAttributes getJobVacancyById(Long id);
     List<JobVacancy> getTopJobVacancy(Long topCount);
     List<JobVacancy> getLatestJobVacancyByCompanyId(Long companyId, Long latestCount);
+    List<String> getJobVacancyLocations();
 
 
 }

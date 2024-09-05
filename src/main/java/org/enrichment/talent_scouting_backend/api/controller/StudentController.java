@@ -1,10 +1,12 @@
 package org.enrichment.talent_scouting_backend.api.controller;
+import org.enrichment.talent_scouting_backend.api.dto.StudentFilter;
 import org.enrichment.talent_scouting_backend.service.student.StudentService;
 
 import org.enrichment.talent_scouting_backend.api.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -33,6 +35,11 @@ public class StudentController {
     @PostMapping("/deleteStudentById")
     public void deleteStudentById(int studentId) {
         studentService.delete(studentId);
+    }
+
+    @PostMapping("/getStudentByFilter")
+    public List<Student> getStudentByFilter(@RequestBody StudentFilter studentFilter) {
+        return studentService.getStudentByFilter(studentFilter);
     }
 
 }
