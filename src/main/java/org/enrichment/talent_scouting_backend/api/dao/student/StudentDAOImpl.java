@@ -1,6 +1,7 @@
 package org.enrichment.talent_scouting_backend.api.dao.student;
 
 import jakarta.persistence.EntityManager;
+import org.enrichment.talent_scouting_backend.api.dto.StudentFilter;
 import org.enrichment.talent_scouting_backend.api.model.Student;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -42,5 +43,10 @@ public class StudentDAOImpl implements StudentDAO {
         Session session = entityManager.unwrap(Session.class);
         Query<Student> query = session.createQuery("from Student", Student.class);
         return query.getResultList();
+    }
+
+    @Override
+    public List<Student> getStudentByFilter(StudentFilter studentFilter) {
+        return List.of();
     }
 }

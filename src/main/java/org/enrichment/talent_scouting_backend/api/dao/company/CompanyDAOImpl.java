@@ -67,36 +67,70 @@ public class CompanyDAOImpl implements CompanyDAO {
 
     @Override
     public List<Company> getCompanyByFilter(CompanyFilter filter) {
+//        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+//        CriteriaQuery<Company> query = cb.createQuery(Company.class);
+//        Root<Company> company = query.from(Company.class);
+//
+//        //join sama jobvacancy supaya bisa filter dari field jobvacancy
+//        Join<Company, JobVacancy> jobVacancy = company.join("jobVacancy");
+//
+//        List<Predicate> predicates = new ArrayList<>();
+//
+//        //location
+//        if (filter.getLocation() != null && !filter.getLocation().isEmpty()) {
+//            predicates.add(cb.equal(company.get("location"), filter.getLocation()));
+//        }
+//
+//        //cek job position berdasarkan array yg dikasi
+//        if (filter.getJobPosition() != null && !filter.getJobPosition().isEmpty()) {
+//            Predicate jobPositionPredicate = jobVacancy.get("jobPosition").in(filter.getJobPosition());
+//            predicates.add(jobPositionPredicate);
+//        }
+//
+//        if (filter.getSearchKeyword() != null && !filter.getSearchKeyword().isEmpty()) {
+//            String searchPattern = "%" + filter.getSearchKeyword().toLowerCase() + "%";
+//            Predicate companyNamePredicate = cb.like(cb.lower(company.get("name")), searchPattern);
+//            Predicate companyDescriptionPredicate = cb.like(company.get("description"), searchPattern);
+//
+//            predicates.add(cb.or(companyNamePredicate, companyDescriptionPredicate));
+//        }
+//
+//        query.where(predicates.toArray(new Predicate[0]));
+//
+//        return entityManager.createQuery(query).getResultList();
+
+        //karena company gaada relationship sama jobvacancy,
+        // jadi start dari jobvacancy root nya trus pakai right join supaya semua company walaupun gaada jobvacancy juga ke include,
+        // lalu nnti di select distinct
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<Company> query = cb.createQuery(Company.class);
-        Root<Company> company = query.from(Company.class);
-
-        //join sama jobvacancy supaya bisa filter dari field jobvacancy
-        Join<Company, JobVacancy> jobVacancy = company.join("jobVacancy");
+        Root<JobVacancy> jobVacancy = query.from(JobVacancy.class);
+        Join<JobVacancy, Company> company = jobVacancy.join("company", JoinType.RIGHT);
 
         List<Predicate> predicates = new ArrayList<>();
 
-        //location
+        // location
         if (filter.getLocation() != null && !filter.getLocation().isEmpty()) {
             predicates.add(cb.equal(company.get("location"), filter.getLocation()));
         }
 
-        //cek job position berdasarkan array yg dikasi
+        //filter job position
         if (filter.getJobPosition() != null && !filter.getJobPosition().isEmpty()) {
             Predicate jobPositionPredicate = jobVacancy.get("jobPosition").in(filter.getJobPosition());
             predicates.add(jobPositionPredicate);
         }
 
+        //filter search keyword
         if (filter.getSearchKeyword() != null && !filter.getSearchKeyword().isEmpty()) {
             String searchPattern = "%" + filter.getSearchKeyword().toLowerCase() + "%";
             Predicate companyNamePredicate = cb.like(cb.lower(company.get("name")), searchPattern);
             Predicate companyDescriptionPredicate = cb.like(company.get("description"), searchPattern);
-
             predicates.add(cb.or(companyNamePredicate, companyDescriptionPredicate));
         }
 
-        query.where(predicates.toArray(new Predicate[0]));
+        query.select(company).distinct(true).where(predicates.toArray(new Predicate[0]));
 
         return entityManager.createQuery(query).getResultList();
+
     }
 }

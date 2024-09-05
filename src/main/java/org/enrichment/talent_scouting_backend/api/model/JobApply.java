@@ -24,6 +24,10 @@ public class JobApply {
     @Column(columnDefinition = "TEXT")
     private String notes;
 
+    @Lob
+    @Column(columnDefinition = "TEXT")
+    private String companyNote;
+
     public JobApplyID getJobApplyPK() {
         return jobApplyPK;
     }
@@ -62,5 +66,13 @@ public class JobApply {
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    public String getCompanyNote() {
+        return companyNote;
+    }
+
+    public void setCompanyNote(String companyNote) {
+        this.companyNote = companyNote;
     }
 }

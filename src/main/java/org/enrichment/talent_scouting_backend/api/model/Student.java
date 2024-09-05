@@ -27,6 +27,9 @@ public class Student {
     @Column
     private String phone;
 
+    @Column
+    private Float GPA;
+
 //    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-mm-yyyy")
 //    @DateTimeFormat(pattern = "dd-mm-yyyy")
 //    private Date dob;
@@ -157,5 +160,13 @@ public class Student {
 
     public void setPersonal_url(String personal_url) {
         this.personal_url = personal_url;
+    }
+
+    public Float getGPA() {
+        return GPA;
+    }
+
+    public void setGPA(Float GPA) {
+        this.GPA = GPA;
     }
 }
