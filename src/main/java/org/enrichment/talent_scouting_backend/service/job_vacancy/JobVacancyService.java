@@ -20,4 +20,6 @@ public interface JobVacancyService {
     List<JobVacancy> getJobVacancyByCompanyId(Long companyID);
 
     JobVacancyAllAttributes getJobVacancyById(Long id);
+    List<JobVacancy> getTopJobVacancy(Long topCount);
+
 }

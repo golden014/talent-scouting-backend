@@ -133,4 +133,18 @@ public class JobVacancyImpl implements JobVacancyDAO{
         query.setParameter("companyId", companyID);
         return query.getResultList();
     }
+
+    @Override
+    public List<JobVacancy> getTopJobVacancy(Long topCount) {
+        //mengambil {top count} job vacancy berdasarkan jumlah student yang apply
+        String query = "SELECT jv " +
+                "FROM JobVacancy jv " +
+                "LEFT JOIN JobApply ja ON jv.id = ja.jobVacancy.id " +
+                "GROUP BY jv.id " +
+                "ORDER BY COUNT(ja.id) DESC";
+
+        return entityManager.createQuery(query, JobVacancy.class)
+                .setMaxResults(Math.toIntExact(topCount)) //limit top based on top count nya
+                .getResultList();
+    }
 }

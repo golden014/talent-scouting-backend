@@ -52,7 +52,7 @@ public class JobApplyController {
         return ResponseEntity.badRequest().build();
     }
 
-    @PostMapping("/getJobApplyByCompanyId")
+    @PostMapping("/getJobApplyByStudentId")
     public List<JobApply> getJobApplyByStudentId(@RequestBody SingleIDRequest data) {
         return jobApplyService.getJobApplyByStudentId(data.getId());
     }

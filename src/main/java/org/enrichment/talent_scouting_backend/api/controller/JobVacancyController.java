@@ -96,6 +96,15 @@ public class JobVacancyController {
         }
         return ResponseEntity.badRequest().build();
     }
+
+    @GetMapping("/getPopularJobVacancy")
+    public ResponseEntity<List<JobVacancy>> getJobPopularJobVacancy(@RequestParam("topCount") Long topCount) {
+        List<JobVacancy> output = jobVacancyService.getTopJobVacancy(topCount);
+        if (output != null) {
+            return ResponseEntity.ok(output);
+        }
+        return ResponseEntity.badRequest().build();
+    }
 }
 
 
