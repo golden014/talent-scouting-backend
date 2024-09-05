@@ -16,4 +16,5 @@ public interface StudentService {
 
     List<Student> getStudentByFilter(StudentFilter studentFilter);
 
+    List<String> getStudentMajors();
 }

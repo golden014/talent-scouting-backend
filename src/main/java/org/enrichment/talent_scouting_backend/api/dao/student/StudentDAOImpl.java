@@ -78,4 +78,10 @@ public class StudentDAOImpl implements StudentDAO {
         query.where(predicates.toArray(new Predicate[0]));
         return entityManager.createQuery(query).getResultList();
     }
+
+    @Override
+    public List<String> getStudentMajors() {
+        String query = "SELECT DISTINCT st.major FROM Student st";
+        return entityManager.createQuery(query, String.class).getResultList();
+    }
 }

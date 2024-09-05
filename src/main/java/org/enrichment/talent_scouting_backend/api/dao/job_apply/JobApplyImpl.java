@@ -48,4 +48,12 @@ public class JobApplyImpl implements JobApplyDAO{
         query.setParameter("studentId", studentId);
         return query.getResultList();
     }
+
+    @Override
+    public Integer getJobApplyCountByVacancyId(Long vacancyId) {
+        String hql = "SELECT COUNT(ja) FROM JobApply ja WHERE ja.jobVacancy.id = :vacancyId";
+        TypedQuery<Long> query = entityManager.createQuery(hql, Long.class);
+        query.setParameter("vacancyId", vacancyId);
+        return Math.toIntExact(query.getSingleResult());
+    }
 }

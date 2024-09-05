@@ -56,4 +56,10 @@ public class JobApplyController {
     public List<JobApply> getJobApplyByStudentId(@RequestBody SingleIDRequest data) {
         return jobApplyService.getJobApplyByStudentId(data.getId());
     }
+
+    @GetMapping("/getJobApplyCountByVacancyId")
+    public Integer getJobApplyCountByVacancyId(@RequestParam("vacancyId") Long vacancyId) {
+        System.out.println(vacancyId);
+        return jobApplyService.getJobApplyCountByVacancyId(vacancyId);
+    }
 }

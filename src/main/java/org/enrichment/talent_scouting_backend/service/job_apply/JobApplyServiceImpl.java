@@ -42,4 +42,9 @@ public class JobApplyServiceImpl implements JobApplyService{
     public List<JobApply> getJobApplyByStudentId(Long studentId) {
         return jobApplyDAO.getJobApplyByStudentId(studentId);
     }
+
+    @Override
+    public Integer getJobApplyCountByVacancyId(Long vacancyId) {
+        return jobApplyDAO.getJobApplyCountByVacancyId(vacancyId);
+    }
 }

@@ -4,6 +4,7 @@ import org.enrichment.talent_scouting_backend.service.student.StudentService;
 
 import org.enrichment.talent_scouting_backend.api.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -40,6 +41,15 @@ public class StudentController {
     @PostMapping("/getStudentByFilter")
     public List<Student> getStudentByFilter(@RequestBody StudentFilter studentFilter) {
         return studentService.getStudentByFilter(studentFilter);
+    }
+
+    @GetMapping("/getStudentMajors")
+    public ResponseEntity<List<String>> getStudentMajors() {
+        List<String> output = studentService.getStudentMajors();
+        if (output != null) {
+            return ResponseEntity.ok(output);
+        }
+        return ResponseEntity.badRequest().build();
     }
 
 }

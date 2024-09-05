@@ -42,4 +42,9 @@ public class StudentServiceImpl implements StudentService {
     public List<Student> getStudentByFilter(StudentFilter studentFilter) {
         return studentDAO.getStudentByFilter(studentFilter);
     }
+
+    @Override
+    public List<String> getStudentMajors() {
+        return studentDAO.getStudentMajors();
+    }
 }
