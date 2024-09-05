@@ -1,12 +1,13 @@
 package org.enrichment.talent_scouting_backend.service.job_vacancy;
 
 import org.enrichment.talent_scouting_backend.api.dao.job_vacancy.JobVacancyDAO;
+import org.enrichment.talent_scouting_backend.api.dto.JobVacancyAllAttributes;
 import org.enrichment.talent_scouting_backend.api.model.ExtrasInfo;
 import org.enrichment.talent_scouting_backend.api.model.JobVacancy;
 import org.enrichment.talent_scouting_backend.api.model.JobVacancyResponsibility;
 import org.enrichment.talent_scouting_backend.api.model.JobVacancySkill;
-import org.enrichment.talent_scouting_backend.api.request.InsertJobVacancy;
-import org.enrichment.talent_scouting_backend.api.request.JobVacancyFilter;
+import org.enrichment.talent_scouting_backend.api.dto.InsertJobVacancy;
+import org.enrichment.talent_scouting_backend.api.dto.JobVacancyFilter;
 import org.enrichment.talent_scouting_backend.service.extras_info.ExtrasInfoService;
 import org.enrichment.talent_scouting_backend.service.job_vacancy_responsibility.JobVacancyResponsibilityService;
 import org.enrichment.talent_scouting_backend.service.job_vacancy_skill.JobVacancySkillService;
@@ -80,7 +81,7 @@ public class JobVacancyServiceImpl implements JobVacancyService {
     }
 
     @Override
-    public JobVacancy getJobVacancyById(Long id) {
+    public JobVacancyAllAttributes getJobVacancyById(Long id) {
         return jobVacancyDAO.getJobVacancyByID(id);
     }
 }

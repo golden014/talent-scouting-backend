@@ -1,9 +1,10 @@
 package org.enrichment.talent_scouting_backend.api.controller;
 
+import org.enrichment.talent_scouting_backend.api.dto.JobVacancyAllAttributes;
 import org.enrichment.talent_scouting_backend.api.model.*;
-import org.enrichment.talent_scouting_backend.api.request.SingleIDRequest;
-import org.enrichment.talent_scouting_backend.api.request.InsertJobVacancy;
-import org.enrichment.talent_scouting_backend.api.request.JobVacancyFilter;
+import org.enrichment.talent_scouting_backend.api.dto.SingleIDRequest;
+import org.enrichment.talent_scouting_backend.api.dto.InsertJobVacancy;
+import org.enrichment.talent_scouting_backend.api.dto.JobVacancyFilter;
 import org.enrichment.talent_scouting_backend.service.extras_info.ExtrasInfoService;
 import org.enrichment.talent_scouting_backend.service.job_vacancy.JobVacancyService;
 import org.enrichment.talent_scouting_backend.service.job_vacancy_responsibility.JobVacancyResponsibilityService;
@@ -87,8 +88,8 @@ public class JobVacancyController {
     }
 
     @GetMapping("/getJobVacancyById")
-    public ResponseEntity<JobVacancy> getJobVacancyById(@RequestParam("jobVacancyId") Long jobVacancyId) {
-        JobVacancy out = jobVacancyService.getJobVacancyById(jobVacancyId);
+    public ResponseEntity<JobVacancyAllAttributes> getJobVacancyById(@RequestParam("jobVacancyId") Long jobVacancyId) {
+        JobVacancyAllAttributes out = jobVacancyService.getJobVacancyById(jobVacancyId);
 
         if (out != null) {
             return ResponseEntity.ok(out);

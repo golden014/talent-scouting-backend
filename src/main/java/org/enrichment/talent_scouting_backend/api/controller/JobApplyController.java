@@ -2,8 +2,7 @@ package org.enrichment.talent_scouting_backend.api.controller;
 
 
 import org.enrichment.talent_scouting_backend.api.model.JobApply;
-import org.enrichment.talent_scouting_backend.api.model.JobVacancy;
-import org.enrichment.talent_scouting_backend.api.request.SingleIDRequest;
+import org.enrichment.talent_scouting_backend.api.dto.SingleIDRequest;
 import org.enrichment.talent_scouting_backend.service.job_apply.JobApplyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

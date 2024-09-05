@@ -1,7 +1,8 @@
 package org.enrichment.talent_scouting_backend.api.dao.job_vacancy;
 
+import org.enrichment.talent_scouting_backend.api.dto.JobVacancyAllAttributes;
 import org.enrichment.talent_scouting_backend.api.model.JobVacancy;
-import org.enrichment.talent_scouting_backend.api.request.JobVacancyFilter;
+import org.enrichment.talent_scouting_backend.api.dto.JobVacancyFilter;
 
 import java.util.List;
 
@@ -11,7 +12,7 @@ public interface JobVacancyDAO {
 
     void deleteJobVacancy(JobVacancy jobVacancy);
 
-    JobVacancy getJobVacancyByID(Long jobVacancyID);
+    JobVacancyAllAttributes getJobVacancyByID(Long jobVacancyId);
 
     List<JobVacancy> getJobVacanciesByFilters(JobVacancyFilter jobVacancyFilter);
 

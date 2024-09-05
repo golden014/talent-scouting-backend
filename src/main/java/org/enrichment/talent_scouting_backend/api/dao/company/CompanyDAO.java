@@ -1,7 +1,7 @@
 package org.enrichment.talent_scouting_backend.api.dao.company;
 
 import org.enrichment.talent_scouting_backend.api.model.Company;
-import org.enrichment.talent_scouting_backend.api.request.CompanyFilter;
+import org.enrichment.talent_scouting_backend.api.dto.CompanyFilter;
 
 import java.util.List;
 

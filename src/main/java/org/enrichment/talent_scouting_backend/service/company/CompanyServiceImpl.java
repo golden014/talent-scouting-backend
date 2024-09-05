@@ -4,7 +4,7 @@ import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.enrichment.talent_scouting_backend.api.dao.company.CompanyDAO;
 import org.enrichment.talent_scouting_backend.api.model.Company;
-import org.enrichment.talent_scouting_backend.api.request.CompanyFilter;
+import org.enrichment.talent_scouting_backend.api.dto.CompanyFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

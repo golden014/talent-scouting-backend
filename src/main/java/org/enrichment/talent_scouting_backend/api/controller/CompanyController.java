@@ -1,8 +1,8 @@
 package org.enrichment.talent_scouting_backend.api.controller;
 
 import org.enrichment.talent_scouting_backend.api.model.Company;
-import org.enrichment.talent_scouting_backend.api.request.CompanyFilter;
-import org.enrichment.talent_scouting_backend.api.request.CompanyLogin;
+import org.enrichment.talent_scouting_backend.api.dto.CompanyFilter;
+import org.enrichment.talent_scouting_backend.api.dto.CompanyLogin;
 import org.enrichment.talent_scouting_backend.service.company.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

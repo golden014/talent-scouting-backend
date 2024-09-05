@@ -1,8 +1,9 @@
 package org.enrichment.talent_scouting_backend.service.job_vacancy;
 
+import org.enrichment.talent_scouting_backend.api.dto.JobVacancyAllAttributes;
 import org.enrichment.talent_scouting_backend.api.model.JobVacancy;
-import org.enrichment.talent_scouting_backend.api.request.InsertJobVacancy;
-import org.enrichment.talent_scouting_backend.api.request.JobVacancyFilter;
+import org.enrichment.talent_scouting_backend.api.dto.InsertJobVacancy;
+import org.enrichment.talent_scouting_backend.api.dto.JobVacancyFilter;
 
 import java.util.List;
 
@@ -18,5 +19,5 @@ public interface JobVacancyService {
 
     List<JobVacancy> getJobVacancyByCompanyId(Long companyID);
 
-    JobVacancy getJobVacancyById(Long id);
+    JobVacancyAllAttributes getJobVacancyById(Long id);
 }

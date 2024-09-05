@@ -1,4 +1,4 @@
-package org.enrichment.talent_scouting_backend.api.request;
+package org.enrichment.talent_scouting_backend.api.dto;
 
 import java.util.List;
 
