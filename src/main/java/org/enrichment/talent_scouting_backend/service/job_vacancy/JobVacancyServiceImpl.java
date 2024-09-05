@@ -78,4 +78,9 @@ public class JobVacancyServiceImpl implements JobVacancyService {
     public List<JobVacancy> getJobVacancyByCompanyId(Long companyID) {
         return jobVacancyDAO.getJobVacancyByCompanyId(companyID);
     }
+
+    @Override
+    public JobVacancy getJobVacancyById(Long id) {
+        return jobVacancyDAO.getJobVacancyByID(id);
+    }
 }

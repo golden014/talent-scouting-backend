@@ -10,9 +10,7 @@ import org.enrichment.talent_scouting_backend.service.job_vacancy_responsibility
 import org.enrichment.talent_scouting_backend.service.job_vacancy_skill.JobVacancySkillService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -86,6 +84,16 @@ public class JobVacancyController {
     public List<JobVacancy> getJobVacanciesByCompanyId(@RequestBody SingleIDRequest data) {
         System.out.println(data.getId());
         return jobVacancyService.getJobVacancyByCompanyId(data.getId());
+    }
+
+    @GetMapping("/getJobVacancyById")
+    public ResponseEntity<JobVacancy> getJobVacancyById(@RequestParam("jobVacancyId") Long jobVacancyId) {
+        JobVacancy out = jobVacancyService.getJobVacancyById(jobVacancyId);
+
+        if (out != null) {
+            return ResponseEntity.ok(out);
+        }
+        return ResponseEntity.badRequest().build();
     }
 }
 
