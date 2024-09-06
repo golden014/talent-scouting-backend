@@ -82,7 +82,7 @@ public class JobVacancyController {
         return jobVacancyService.getJobVacanciesByFilters(jobVacancyFilter);
     }
 
-    @PostMapping("/getJobVacancyByCompanyId")
+    @PostMapping("/getJobVacanciesByCompanyId")
     public List<JobVacancy> getJobVacanciesByCompanyId(@RequestBody SingleIDRequest data) {
         System.out.println(data.getId());
         return jobVacancyService.getJobVacancyByCompanyId(data.getId());

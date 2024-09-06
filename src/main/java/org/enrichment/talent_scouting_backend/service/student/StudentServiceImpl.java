@@ -47,4 +47,10 @@ public class StudentServiceImpl implements StudentService {
     public List<String> getStudentMajors() {
         return studentDAO.getStudentMajors();
     }
+
+    @Transactional
+    @Override
+    public Student getStudentByEmail(String email) {
+        return studentDAO.getStudentByEmail(email);
+    }
 }

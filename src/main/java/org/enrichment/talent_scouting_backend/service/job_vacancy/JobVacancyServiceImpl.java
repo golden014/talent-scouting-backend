@@ -71,6 +71,7 @@ public class JobVacancyServiceImpl implements JobVacancyService {
     @Transactional
     @Override
     public List<JobVacancy> getJobVacanciesByFilters(JobVacancyFilter jobVacancyFilter) {
+
         return jobVacancyDAO.getJobVacanciesByFilters(jobVacancyFilter);
     }
 

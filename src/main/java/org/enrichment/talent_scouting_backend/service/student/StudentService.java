@@ -14,6 +14,8 @@ public interface StudentService {
 
     void delete(int id);
 
+    Student getStudentByEmail(String email);
+
     List<Student> getStudentByFilter(StudentFilter studentFilter);
 
     List<String> getStudentMajors();

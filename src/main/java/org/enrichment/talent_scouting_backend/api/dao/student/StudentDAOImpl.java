@@ -1,6 +1,8 @@
 package org.enrichment.talent_scouting_backend.api.dao.student;
 
 import jakarta.persistence.EntityManager;
+import org.enrichment.talent_scouting_backend.api.model.Company;
+import org.enrichment.talent_scouting_backend.api.model.ExtrasInfo;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
@@ -48,6 +50,16 @@ public class StudentDAOImpl implements StudentDAO {
         Session session = entityManager.unwrap(Session.class);
         Query<Student> query = session.createQuery("from Student", Student.class);
         return query.getResultList();
+    }
+
+    @Override
+    public Student getStudentByEmail(String email) {
+//        return entityManager.find(Student.class, email);
+        return entityManager.createQuery(
+                        "SELECT s FROM Student s WHERE s.email = :email",
+                        Student.class)
+                .setParameter("email", email)
+                .getSingleResult();
     }
 
     @Override

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class JobVacancyImpl implements JobVacancyDAO{
@@ -32,10 +33,10 @@ public class JobVacancyImpl implements JobVacancyDAO{
     @Override
     public JobVacancyAllAttributes getJobVacancyByID(Long jobVacancyId) {
 //        return entityManager.find(JobVacancy.class, jobVacancyID);
-        String query = "SELECT jv, jvs, jvr, ei FROM JobVacancy jv " +
-                "LEFT JOIN JobVacancySkill jvs ON jv.id = jvs.jobVacancy.id " +
-                "LEFT JOIN JobVacancyResponsibility jvr ON jv.id = jvr.jobVacancy.id " +
-                "LEFT JOIN ExtrasInfo ei ON jv.id = ei.jobVacancy.id " +
+        String query = "SELECT DISTINCT jv, jvs, jvr, ei FROM JobVacancy jv " +
+                " LEFT JOIN JobVacancySkill jvs ON jv.id = jvs.jobVacancy.id " +
+                " LEFT JOIN JobVacancyResponsibility jvr ON jv.id = jvr.jobVacancy.id " +
+                " LEFT JOIN ExtrasInfo ei ON jv.id = ei.jobVacancy.id " +
                 "WHERE jv.id = :jobVacancyId";
 
         List<Object[]> result = entityManager.createQuery(query)
@@ -72,7 +73,20 @@ public class JobVacancyImpl implements JobVacancyDAO{
             }
         }
 
-        return new JobVacancyAllAttributes(jobVacancy, jobVacancySkills, jobVacancyResponsibilities, extrasInfos);
+        List<JobVacancySkill> uniqueJobVacancySkill = new ArrayList<>(jobVacancySkills.stream()
+                .collect(Collectors.toMap(JobVacancySkill::getJobVacancySkillPK, p -> p, (existing, replacement) -> existing))
+                .values());
+
+        List<JobVacancyResponsibility> uniqueJobVacancyResponsibility = new ArrayList<>(jobVacancyResponsibilities.stream()
+                .collect(Collectors.toMap(JobVacancyResponsibility::getId, p -> p, (existing, replacement) -> existing))
+                .values());
+
+        List<ExtrasInfo> uniqueExtrasInfo = new ArrayList<>(extrasInfos.stream()
+                .collect(Collectors.toMap(ExtrasInfo::getId, p -> p, (existing, replacement) -> existing))
+                .values());
+
+
+        return new JobVacancyAllAttributes(jobVacancy, uniqueJobVacancySkill, uniqueJobVacancyResponsibility, uniqueExtrasInfo);
     }
 
     @Override
@@ -100,7 +114,9 @@ public class JobVacancyImpl implements JobVacancyDAO{
             predicates.add(cb.equal(jobVacancy.get("jobPosition"), jobVacancyFilter.getJobPosition()));
         }
 
-        if (jobVacancyFilter.getJobTypeId() != null) {
+
+
+        if (!jobVacancyFilter.getJobTypeId().isEmpty()) {
             predicates.add(cb.equal(jobVacancy.get("jobType").get("id"), jobVacancyFilter.getJobTypeId()));
         }
 

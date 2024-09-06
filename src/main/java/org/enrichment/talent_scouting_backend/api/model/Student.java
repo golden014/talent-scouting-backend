@@ -21,7 +21,7 @@ public class Student {
     @Column
     private String name;
 
-    @Column
+    @Column(unique = true)
     private String email;
 
     @Column

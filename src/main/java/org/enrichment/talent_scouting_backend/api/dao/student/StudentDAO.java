@@ -14,6 +14,8 @@ public interface StudentDAO {
 
     List<Student> getAllStudents();
 
+    Student getStudentByEmail(String email);
+
     List<Student> getStudentByFilter(StudentFilter studentFilter);
 
     List<String> getStudentMajors();
